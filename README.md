@@ -13,15 +13,20 @@
   <a href="#install">
     <img src="https://img.shields.io/badge/Claude_Code-skill-D97757" alt="Claude Code skill">
   </a>
+  <a href="#claude-chat-and-cowork">
+    <img src="https://img.shields.io/badge/Claude_Cowork-skill-D97757" alt="Claude Cowork skill">
+  </a>
 </p>
 
 > **Original theory by [Scrivs (@mrpaulscrivens)](https://www.threads.com/@mrpaulscrivens).** This skill is based on his 21-part thread, **[How to Get Filthy Rich by Starting a Cult Like a White Woman](https://www.threads.com/@mrpaulscrivens/post/DdJoxz1Fb4K)**. This credits the theory, not authorship of the skill.
 
-A reusable skill for **Codex and Claude Code** that builds a **Launch Playbook** around the business you are promoting: its audience, shared beliefs, following, offer, campaign copy, and publication sequence.
+A reusable skill for **Codex, Claude Code, and Claude Chat/Cowork** that builds a **Launch Playbook** around the business you are promoting: its audience, shared beliefs, following, offer, campaign copy, and publication sequence.
 
 The person using the skill can be a promoter, employee, agency representative, affiliate, founder, or someone else. Discovery starts with your actual role and relationship to the audience, then establishes whose public voice the campaign will use.
 
 ## Install
+
+### Codex and Claude Code
 
 Run in your terminal with Node.js/npm and Git installed:
 
@@ -32,6 +37,28 @@ npx skills add xiaofei-du/cult-like-launch
 Choose **Codex**, **Claude Code**, or both, then choose a project or global installation. The [Skills CLI](https://github.com/vercel-labs/skills) handles downloading the skill and placing it where your selected agents can find it. Then follow [Use](#use) below.
 
 Using this skill requires no Python setup or build step.
+
+### Claude Chat and Cowork
+
+1. [Download cult-like-launch.zip](https://github.com/xiaofei-du/cult-like-launch/releases/latest/download/cult-like-launch.zip). Keep it zipped.
+2. In Claude, open **Customize → Skills → Add skill (+) → Upload skill**. Some versions show **Create skill → Upload a skill**.
+3. Select `cult-like-launch.zip`, click **Save**, and check that `cult-like-launch` is enabled.
+4. Start a chat or Cowork task using the prompt under [Use](#use).
+
+No terminal or local build is needed. Upload the release asset named `cult-like-launch.zip`; GitHub's **Source code (zip)** is the repository archive.
+
+The ZIP was uploaded and enabled in Claude desktop's Chat and Cowork Skills on September 13, 2026, with all 10 bundled files present. This verifies installation; a full playbook run in Cowork has not been tested.
+
+If Skills is unavailable, check **Settings → Capabilities → Code execution and file creation**. See [Claude's official installation guide](https://support.claude.com/en/articles/12512180-use-skills-in-claude).
+
+<details>
+<summary>What about ChatGPT?</summary>
+
+ChatGPT supports skills too. OpenAI documents standalone skills in the ChatGPT desktop app and skills bundled as plugins across Chat and Work on web, desktop, and mobile. See [Build skills](https://learn.chatgpt.com/docs/build-skills).
+
+This repository currently distributes a standalone skill. We have not published a ChatGPT plugin or verified a ChatGPT installation, so there is no tested ChatGPT install procedure here yet. The Codex terminal command above installs locally; it does not install a skill into your ChatGPT workspace.
+
+</details>
 
 ## What it does
 
@@ -74,7 +101,14 @@ for the business I am promoting.
 /cult-like-launch Create a Launch Playbook for the business I am promoting.
 ```
 
-With either agent, include whatever you already know:
+**Claude Chat or Cowork:**
+
+```text
+Use the cult-like-launch skill to create a Launch Playbook
+for the business I am promoting.
+```
+
+With any of these, include whatever you already know:
 
 ```text
 Business and offer: ...
@@ -90,6 +124,8 @@ Keep business briefs and generated campaigns in your own workspace. The skill do
 
 ## Uninstall
 
+**Codex and Claude Code:**
+
 For a project installation, run this from that project:
 
 ```bash
@@ -97,6 +133,8 @@ npx skills remove cult-like-launch
 ```
 
 For a global installation, add `-g`. Select the agents you want to remove the skill from.
+
+**Claude Chat and Cowork:** Open **Customize → Skills → cult-like-launch**. Toggle it off to disable it, or use **… → Delete** to remove it from your Claude account.
 
 ## Files
 
@@ -134,7 +172,9 @@ inventory.
 
 Successful [Skill checks runs](https://github.com/xiaofei-du/cult-like-launch/actions/workflows/skill-checks.yml)
 provide these files as a downloadable artifact for 14 days. No GitHub Release is
-published automatically. The checks validate structure and packaging; they do
+published automatically; maintainers publish the verified ZIP and checksum to
+[Releases](https://github.com/xiaofei-du/cult-like-launch/releases) for direct download.
+The checks validate structure and packaging; they do
 not test campaign performance.
 
 To update the development dependency, regenerate its pinned version and hashes:
