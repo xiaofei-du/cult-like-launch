@@ -2,6 +2,8 @@
 
 > **Original theory by [Scrivs (@mrpaulscrivens)](https://www.threads.com/@mrpaulscrivens).** This skill is based on his 21-part thread, **[How to Get Filthy Rich by Starting a Cult Like a White Woman](https://www.threads.com/@mrpaulscrivens/post/DdJoxz1Fb4K)**. This credits the theory, not authorship of the skill.
 
+[![Skill checks](https://github.com/xiaofei-du/cult-like-launch/actions/workflows/skill-checks.yml/badge.svg?branch=main&event=push)](https://github.com/xiaofei-du/cult-like-launch/actions/workflows/skill-checks.yml)
+
 A reusable Codex skill for building a **Launch Playbook** around the business you are promoting: its audience, shared beliefs, following, offer, campaign copy, and publication sequence.
 
 The person using the skill can be a promoter, employee, agency representative, affiliate, founder, or someone else. Discovery starts with your actual role and relationship to the audience, then establishes whose public voice the campaign will use.
@@ -69,3 +71,41 @@ Keep business briefs and generated campaigns in your own workspace. The skill do
 - [Playbook output](references/playbook-output.md): deliverable structure and campaign requirements.
 - [Framework](references/framework.md): source summary and section references.
 - [agents/openai.yaml](agents/openai.yaml): Codex display and invocation metadata.
+
+## Development
+
+Read [CONTRIBUTING.md](CONTRIBUTING.md) for semantic commit titles and the
+**Because** / **This commit** format used in commits and pull requests.
+
+With [uv](https://docs.astral.sh/uv/getting-started/installation/) installed, run
+the same checks as CI from the repository root:
+
+```bash
+uv venv --managed-python --python 3.12 .venv
+uv pip sync --python .venv/bin/python --require-hashes --only-binary :all: --index-url https://pypi.org/simple requirements-dev.txt
+.venv/bin/python scripts/validate_skill.py
+.venv/bin/python -m unittest discover -s tests -v
+.venv/bin/python scripts/build_skill.py
+git diff --check
+```
+
+The build produces `dist/cult-like-launch.zip` and its SHA-256 checksum. The ZIP
+contains only the installable `launch-like-a-white-woman/` directory with its
+metadata and references. Tests, repository configuration, and private working
+material are excluded by an explicit file inventory.
+
+Successful [Skill checks runs](https://github.com/xiaofei-du/cult-like-launch/actions/workflows/skill-checks.yml)
+provide these files as a downloadable artifact for 14 days. No GitHub Release is
+published automatically. The checks validate structure and packaging; they do
+not test campaign performance.
+
+To update the development dependency, regenerate its pinned version and hashes:
+
+```bash
+uv pip compile --generate-hashes --no-header --no-annotate --default-index https://pypi.org/simple -o requirements-dev.txt - <<'EOF'
+PyYAML==6.0.3
+EOF
+```
+
+Change the explicit version when upgrading, inspect the generated diff, then
+repeat dependency installation and the checks above.
