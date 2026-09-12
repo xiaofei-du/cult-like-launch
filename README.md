@@ -7,16 +7,31 @@
   <a href="LICENSE">
     <img src="https://img.shields.io/badge/license-MIT-green" alt="MIT license">
   </a>
-  <a href="#install-in-codex">
+  <a href="#install">
     <img src="https://img.shields.io/badge/Codex-skill-17876D" alt="Codex skill">
+  </a>
+  <a href="#install">
+    <img src="https://img.shields.io/badge/Claude_Code-skill-D97757" alt="Claude Code skill">
   </a>
 </p>
 
 > **Original theory by [Scrivs (@mrpaulscrivens)](https://www.threads.com/@mrpaulscrivens).** This skill is based on his 21-part thread, **[How to Get Filthy Rich by Starting a Cult Like a White Woman](https://www.threads.com/@mrpaulscrivens/post/DdJoxz1Fb4K)**. This credits the theory, not authorship of the skill.
 
-A reusable Codex skill for building a **Launch Playbook** around the business you are promoting: its audience, shared beliefs, following, offer, campaign copy, and publication sequence.
+A reusable skill for **Codex and Claude Code** that builds a **Launch Playbook** around the business you are promoting: its audience, shared beliefs, following, offer, campaign copy, and publication sequence.
 
 The person using the skill can be a promoter, employee, agency representative, affiliate, founder, or someone else. Discovery starts with your actual role and relationship to the audience, then establishes whose public voice the campaign will use.
+
+## Install
+
+Run in your terminal with Node.js/npm and Git installed:
+
+```bash
+npx skills add xiaofei-du/cult-like-launch
+```
+
+Choose **Codex**, **Claude Code**, or both, then choose a project or global installation. The [Skills CLI](https://github.com/vercel-labs/skills) handles downloading the skill and placing it where your selected agents can find it. Then follow [Use](#use) below.
+
+Using this skill requires no Python setup or build step.
 
 ## What it does
 
@@ -44,25 +59,24 @@ The guiding source is his 21-part thread, **[How to Get Filthy Rich by Starting 
 
 The repository preserves the [original text](references/original-post.txt), [source map](references/framework.md), and [two](references/images/figure-1.png) [images](references/images/figure-2.png). The skill's discovery workflow and output structure are applications of that source.
 
-## Install in Codex
-
-For a new installation, clone this repository into your Codex skills directory:
-
-```bash
-git clone https://github.com/xiaofei-du/cult-like-launch.git \
-  "${CODEX_HOME:-$HOME/.codex}/skills/launch-like-a-white-woman"
-```
-
-The command expects the destination folder not to exist. The repository root contains `SKILL.md`; keep its `agents/` and `references/` folders alongside it.
-
 ## Use
 
-Invoke the skill in Codex with your own brief:
+**Codex:**
 
 ```text
 Use $launch-like-a-white-woman to create a Launch Playbook
 for the business I am promoting.
+```
 
+**Claude Code:**
+
+```text
+/launch-like-a-white-woman Create a Launch Playbook for the business I am promoting.
+```
+
+With either agent, include whatever you already know:
+
+```text
 Business and offer: ...
 My role and background: ...
 Target audience: ...
