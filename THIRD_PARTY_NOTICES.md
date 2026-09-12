@@ -22,9 +22,3 @@ Rights in these materials remain with their respective copyright holders.
 Their inclusion and attribution do not grant a separate license to reuse them.
 Quotations from them elsewhere in the repository retain their original
 attribution. The theory credit does not imply that Scrivs authored this skill.
-
-## Contribution workflow reference
-
-The contribution format, PR template, and PR-format check were adapted from
-[Attention](https://github.com/xiaofei-du/attention), maintained by Xiaofei Du.
-The CI validation and packaging workflow is specific to this skill repository.
