@@ -1,0 +1,4 @@
+interface:
+  display_name: "How to Launch Your Business by Starting a Cult Like a White Woman"
+  short_description: "Business launch playbooks using Scrivs's framework"
+  default_prompt: "Use $cult-like-launch to create a Launch Playbook for the business I am promoting, starting with the offer, my role and relationship to the audience, then applying Scrivs's framework to following design, campaign copy, and the publication sequence."
