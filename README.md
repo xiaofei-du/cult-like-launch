@@ -84,6 +84,9 @@ Keep business briefs and generated campaigns in your own workspace. The skill do
 
 ## Development
 
+<details>
+<summary>Contributor setup, checks, and packaging</summary>
+
 Read [CONTRIBUTING.md](CONTRIBUTING.md) for semantic commit titles and the
 **Because** / **This commit** format used in commits and pull requests.
 
@@ -120,6 +123,8 @@ EOF
 
 Change the explicit version when upgrading, inspect the generated diff, then
 repeat dependency installation and the checks above.
+
+</details>
 
 ## License
 
