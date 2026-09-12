@@ -1,0 +1,54 @@
+name: Skill checks
+
+on:
+  pull_request:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: skill-checks-${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  validate:
+    name: Validate and package skill
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - name: Check out the code
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+
+      - name: Install uv
+        uses: astral-sh/setup-uv@bec219d24cd3e171d82865faccec33120bb574f4 # v10.1.0
+        with:
+          version: "0.12.10"
+
+      - name: Install hash-verified dependencies
+        run: |
+          uv venv --managed-python --python 3.12 .venv
+          uv pip sync --python .venv/bin/python --require-hashes --only-binary :all: --index-url https://pypi.org/simple requirements-dev.txt
+
+      - name: Validate the skill and documentation links
+        run: .venv/bin/python scripts/validate_skill.py
+
+      - name: Test validation, packaging, and PR format checks
+        run: .venv/bin/python -m unittest discover -s tests -v
+
+      - name: Build and verify the installable package
+        run: .venv/bin/python scripts/build_skill.py
+
+      - name: Upload the verified skill and checksum
+        uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a # v7.0.1
+        with:
+          name: cult-like-launch-${{ github.sha }}
+          path: |
+            dist/cult-like-launch.zip
+            dist/cult-like-launch.zip.sha256
+          if-no-files-found: error
+          retention-days: 14
