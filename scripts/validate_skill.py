@@ -11,7 +11,9 @@ import yaml
 
 SKILL_NAME = "launch-like-a-white-woman"
 PACKAGE_FILES = (
+    "LICENSE",
     "SKILL.md",
+    "THIRD_PARTY_NOTICES.md",
     "agents/openai.yaml",
     "references/business-discovery.md",
     "references/framework.md",

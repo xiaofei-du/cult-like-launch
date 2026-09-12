@@ -17,6 +17,8 @@ class SkillToolsTests(unittest.TestCase):
         self.root = Path(temporary.name) / "skill"
         self.root.mkdir()
         self.files = {
+            "LICENSE": b"MIT License\n\nCopyright (c) 2026 Example Maintainer\n",
+            "THIRD_PARTY_NOTICES.md": b"# Third-party notices\n[License](LICENSE)\n",
             "SKILL.md": (
                 "---\nname: launch-like-a-white-woman\n"
                 "description: Build a launch playbook from a business brief.\n---\n"
@@ -119,6 +121,8 @@ class SkillToolsTests(unittest.TestCase):
         self.assertEqual(result.returncode, 0, result.stderr)
         with zipfile.ZipFile(output) as archive:
             self.assertEqual(set(archive.namelist()), {
+                "launch-like-a-white-woman/LICENSE",
+                "launch-like-a-white-woman/THIRD_PARTY_NOTICES.md",
                 "launch-like-a-white-woman/SKILL.md",
                 "launch-like-a-white-woman/agents/openai.yaml",
                 "launch-like-a-white-woman/references/business-discovery.md",
