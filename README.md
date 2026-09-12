@@ -1,5 +1,7 @@
 # How to Launch Your Business by Starting a Cult Like a White Woman
 
+> **Original theory by [Scrivs (@mrpaulscrivens)](https://www.threads.com/@mrpaulscrivens).** This skill is based on his 21-part thread, **[How to Get Filthy Rich by Starting a Cult Like a White Woman](https://www.threads.com/@mrpaulscrivens/post/DdJoxz1Fb4K)**. This credits the theory, not authorship of the skill.
+
 A reusable Codex skill for building a **Launch Playbook** around the business you are promoting: its audience, shared beliefs, following, offer, campaign copy, and publication sequence.
 
 The person using the skill can be a promoter, employee, agency representative, affiliate, founder, or someone else. Discovery starts with your actual role and relationship to the audience, then establishes whose public voice the campaign will use.
@@ -14,6 +16,13 @@ The person using the skill can be a promoter, employee, agency representative, a
 - Produces usable campaign copy and a publication sequence, with evidence and unresolved inputs clearly identified.
 
 The seven foundations are a practical organization of the source's two beliefs and five elements. They are diagnostic prompts, not validated performance scores.
+
+## Contact
+
+If you find the skill useful or have an idea for what to add, give me a shout:
+
+[![X (Twitter): @xiaofeidu283](https://img.shields.io/badge/X-%40xiaofeidu283-9A4329?style=flat-square&logo=x&logoColor=white&labelColor=9A4329)](https://x.com/xiaofeidu283)
+[![Threads: @smilefei.du](https://img.shields.io/badge/Threads-%40smilefei.du-9A4329?style=flat-square&logo=threads&logoColor=white&labelColor=9A4329)](https://www.threads.com/@smilefei.du)
 
 ## Theory and source
 
