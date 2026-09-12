@@ -88,6 +88,16 @@ You can start with an incomplete brief. The skill uses existing context, asks ab
 
 Keep business briefs and generated campaigns in your own workspace. The skill does not itself authorize sending, scheduling, or publishing campaign materials.
 
+## Uninstall
+
+For a project installation, run this from that project:
+
+```bash
+npx skills remove cult-like-launch
+```
+
+For a global installation, add `-g`. Select the agents you want to remove the skill from.
+
 ## Files
 
 - [SKILL.md](SKILL.md): entrypoint and workflow.

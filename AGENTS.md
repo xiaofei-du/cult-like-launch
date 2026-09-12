@@ -6,8 +6,7 @@ body format. Include actual verification results and material limitations.
 
 Preserve the theory attribution to Scrivs and the original thread. Keep private
 business briefs, campaign outputs, and customer examples outside this repository.
-The repository name is `cult-like-launch`; the installable skill name remains
-`cult-like-launch`.
+The repository and installable skill are both named `cult-like-launch`.
 
 For validator, package, or workflow changes, run the development checks in
 [README.md](README.md#development), including accepted and rejected input cases.
