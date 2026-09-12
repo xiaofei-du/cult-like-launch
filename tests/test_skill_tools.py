@@ -89,6 +89,16 @@ class SkillToolsTests(unittest.TestCase):
             file.write("[Outside](../outside.md)\n")
         self.assert_invalid("outside")
 
+    def test_absolute_local_link_is_rejected_before_distribution(self):
+        target = self.root / "references/framework.md"
+        with (self.root / "SKILL.md").open("a") as file:
+            file.write(f"[Absolute]({target.as_posix()})\n")
+        self.assert_invalid("relative")
+        output = self.root / "dist/absolute.zip"
+        result = self.run_tool("build_skill.py", "--output", str(output))
+        self.assertNotEqual(result.returncode, 0)
+        self.assertFalse(output.exists())
+
     def test_symlink_cannot_supply_a_package_file(self):
         target = self.root.parent / "outside.txt"
         target.write_text("Outside source.\n")

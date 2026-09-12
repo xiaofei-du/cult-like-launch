@@ -42,7 +42,10 @@ def check_links(root, document, packaged):
             continue
         if url.scheme or url.netloc:
             raise ValueError(f"{document.relative_to(root)}: unsupported local link {destination}")
-        target = (document.parent / unquote(url.path)).resolve()
+        local_path = Path(unquote(url.path))
+        if local_path.is_absolute():
+            raise ValueError(f"{document.relative_to(root)}: local links must use relative paths")
+        target = (document.parent / local_path).resolve()
         if not target.is_relative_to(root):
             raise ValueError(f"{document.relative_to(root)}: link points outside the repository")
         if not target.is_file():
