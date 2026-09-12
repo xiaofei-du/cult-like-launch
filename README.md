@@ -1,8 +1,18 @@
 # How to Launch Your Business by Starting a Cult Like a White Woman
 
-> **Original theory by [Scrivs (@mrpaulscrivens)](https://www.threads.com/@mrpaulscrivens).** This skill is based on his 21-part thread, **[How to Get Filthy Rich by Starting a Cult Like a White Woman](https://www.threads.com/@mrpaulscrivens/post/DdJoxz1Fb4K)**. This credits the theory, not authorship of the skill.
+<p align="center">
+  <a href="https://github.com/xiaofei-du/cult-like-launch/actions/workflows/skill-checks.yml">
+    <img src="https://github.com/xiaofei-du/cult-like-launch/actions/workflows/skill-checks.yml/badge.svg?branch=main&amp;event=push" alt="Skill checks on main">
+  </a>
+  <a href="LICENSE">
+    <img src="https://img.shields.io/badge/license-MIT-green" alt="MIT license">
+  </a>
+  <a href="#install-in-codex">
+    <img src="https://img.shields.io/badge/Codex-skill-17876D" alt="Codex skill">
+  </a>
+</p>
 
-[![Skill checks](https://github.com/xiaofei-du/cult-like-launch/actions/workflows/skill-checks.yml/badge.svg?branch=main&event=push)](https://github.com/xiaofei-du/cult-like-launch/actions/workflows/skill-checks.yml)
+> **Original theory by [Scrivs (@mrpaulscrivens)](https://www.threads.com/@mrpaulscrivens).** This skill is based on his 21-part thread, **[How to Get Filthy Rich by Starting a Cult Like a White Woman](https://www.threads.com/@mrpaulscrivens/post/DdJoxz1Fb4K)**. This credits the theory, not authorship of the skill.
 
 A reusable Codex skill for building a **Launch Playbook** around the business you are promoting: its audience, shared beliefs, following, offer, campaign copy, and publication sequence.
 
@@ -28,7 +38,7 @@ If you find the skill useful or have an idea for what to add, give me a shout:
 
 ## Theory and source
 
-**Theory author: [@mrpaulscrivens](https://www.threads.com/@mrpaulscrivens), who calls himself Scrivs in the thread.** This is attribution of the theory, not authorship of this skill.
+**Theory author: [@mrpaulscrivens](https://www.threads.com/@mrpaulscrivens), who calls himself Scrivs in the thread.** Read the [original 21-part Threads post](https://www.threads.com/@mrpaulscrivens/post/DdJoxz1Fb4K). This is attribution of the theory, not authorship of this skill.
 
 The guiding source is his 21-part thread, **[How to Get Filthy Rich by Starting a Cult Like a White Woman](https://www.threads.com/@mrpaulscrivens/post/DdJoxz1Fb4K)**, including its two accompanying images.
 
@@ -91,8 +101,9 @@ git diff --check
 
 The build produces `dist/cult-like-launch.zip` and its SHA-256 checksum. The ZIP
 contains only the installable `launch-like-a-white-woman/` directory with its
-metadata and references. Tests, repository configuration, and private working
-material are excluded by an explicit file inventory.
+metadata, references, license, and third-party notices. Tests, repository
+configuration, and private working material are excluded by an explicit file
+inventory.
 
 Successful [Skill checks runs](https://github.com/xiaofei-du/cult-like-launch/actions/workflows/skill-checks.yml)
 provide these files as a downloadable artifact for 14 days. No GitHub Release is
@@ -109,3 +120,9 @@ EOF
 
 Change the explicit version when upgrading, inspect the generated diff, then
 repeat dependency installation and the checks above.
+
+## License
+
+The project's original skill instructions, code, tests, and documentation use
+the [MIT License](LICENSE). The original thread and accompanying images remain
+third-party material; see [THIRD_PARTY_NOTICES.md](THIRD_PARTY_NOTICES.md).
