@@ -28,7 +28,7 @@ The repository preserves the [original text](references/original-post.txt), [sou
 For a new installation, clone this repository into your Codex skills directory:
 
 ```bash
-git clone https://github.com/xiaofei-du/launch-like-a-white-woman.git \
+git clone https://github.com/xiaofei-du/cult-like-launch.git \
   "${CODEX_HOME:-$HOME/.codex}/skills/launch-like-a-white-woman"
 ```
 
