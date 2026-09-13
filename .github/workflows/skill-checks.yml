@@ -4,6 +4,7 @@ on:
   pull_request:
   push:
     branches: [main]
+    tags: ['v[0-9]+.[0-9]+.[0-9]+']
   workflow_dispatch:
 
 permissions:
@@ -11,7 +12,7 @@ permissions:
 
 concurrency:
   group: skill-checks-${{ github.workflow }}-${{ github.ref }}
-  cancel-in-progress: true
+  cancel-in-progress: ${{ !startsWith(github.ref, 'refs/tags/') }}
 
 jobs:
   validate:
@@ -52,3 +53,36 @@ jobs:
             dist/cult-like-launch.zip.sha256
           if-no-files-found: error
           retention-days: 14
+
+  release:
+    name: Publish skill release
+    needs: validate
+    if: github.event_name == 'push' && startsWith(github.ref, 'refs/tags/v')
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    permissions:
+      contents: write
+    steps:
+      - name: Download the verified package from this run
+        uses: actions/download-artifact@3e5f45b2cfb9172054b4087a40e8e0b5a5461e7c # v8.0.1
+        with:
+          name: cult-like-launch-${{ github.sha }}
+          path: dist
+
+      - name: Verify the release checksum
+        working-directory: dist
+        run: sha256sum --check cult-like-launch.zip.sha256
+
+      - name: Publish the tagged version and its installable files
+        env:
+          GH_TOKEN: ${{ github.token }}
+          GH_REPO: ${{ github.repository }}
+          RELEASE_TAG: ${{ github.ref_name }}
+        run: |
+          gh release create "$RELEASE_TAG" \
+            dist/cult-like-launch.zip \
+            dist/cult-like-launch.zip.sha256 \
+            --verify-tag \
+            --title "Cult-like Launch $RELEASE_TAG" \
+            --generate-notes \
+            --notes 'Download cult-like-launch.zip for Claude Chat or Cowork, then upload it under Customize → Skills. See the README for installation and source attribution.'

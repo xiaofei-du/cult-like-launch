@@ -171,11 +171,27 @@ configuration, and private working material are excluded by an explicit file
 inventory.
 
 Successful [Skill checks runs](https://github.com/xiaofei-du/cult-like-launch/actions/workflows/skill-checks.yml)
-provide these files as a downloadable artifact for 14 days. No GitHub Release is
-published automatically; maintainers publish the verified ZIP and checksum to
-[Releases](https://github.com/xiaofei-du/cult-like-launch/releases) for direct download.
-The checks validate structure and packaging; they do
-not test campaign performance.
+provide these files as a downloadable artifact for 14 days. Pushing a stable
+version tag such as `v0.1.1` also publishes the verified ZIP and checksum to
+[Releases](https://github.com/xiaofei-du/cult-like-launch/releases), after the
+validation, tests, and build pass. Only the release job has permission to publish.
+The checks validate structure and packaging; they do not test campaign performance.
+
+To release, choose an unused `vMAJOR.MINOR.PATCH` version and tag the reviewed
+commit on `main`. For example, replacing `vX.Y.Z` with that version:
+
+```bash
+git switch main
+git pull --ff-only
+git tag -a vX.Y.Z -m "Release vX.Y.Z"
+git push origin vX.Y.Z
+```
+
+Check the tag's **Skill checks** run and the resulting Release. The README's
+download link follows the latest Release, so it needs no version edit. Changes
+on `main` become available through that link when a new version is released.
+Use a new version for changed files; the workflow does not overwrite existing
+releases. ZIPs remain Release attachments and are not committed to the repository.
 
 To update the development dependency, regenerate its pinned version and hashes:
 
