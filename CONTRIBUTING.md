@@ -69,7 +69,8 @@ metadata, resource links, and package inventory consistent.
 ## Verification and distribution
 
 Follow the [development instructions](README.md#development). The **Skill checks**
-workflow runs on pull requests, pushes to `main`, and manual dispatch. It uses
+workflow runs on pull requests, pushes to `main`, stable `vMAJOR.MINOR.PATCH` tag
+pushes, and manual dispatch. It uses
 Python 3.12, hash-verified dependencies, and commit-pinned GitHub Actions to:
 
 - Validate the skill's frontmatter, invocation metadata, required files, and local
@@ -80,8 +81,15 @@ Python 3.12, hash-verified dependencies, and commit-pinned GitHub Actions to:
   with the source files before uploading the ZIP and SHA-256 checksum as a
   GitHub Actions artifact, retained for 14 days.
 
-The artifact is a downloadable build, not a published GitHub Release. This
-workflow does not publish campaigns or run live business experiments. Structural
+On stable version tag pushes, a separate job downloads that run's verified
+artifact, checks its checksum, and publishes the ZIP and checksum as GitHub
+Release attachments. Only that job has `contents: write` permission. Pull
+requests, branch pushes, and manual dispatch run checks without publishing.
+Follow the release steps in the [README](README.md#development) and use a new
+version for changed files; the workflow does not overwrite existing releases.
+ZIPs are not committed to the repository.
+
+This workflow does not publish campaigns or run live business experiments. Structural
 validation does not prove campaign effectiveness. External website availability
 and full Markdown rendering are outside the local link check.
 
